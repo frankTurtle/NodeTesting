@@ -11,19 +11,10 @@ class Server extends EventEmitter {
         client.on('command', (command, args) => {
             switch (command) {
                 case 'help':
-                    this[command]();
-                    break;
-
                 case 'add':
-                    this[command]();
-                    break;
-
                 case 'ls':
-                    this[command]();
-                    break;
-
                 case 'delete':
-                    this[command]();
+                    this[command](args);
                     break;
 
                 default:
