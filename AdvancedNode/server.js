@@ -28,8 +28,8 @@ class Server extends EventEmitter {
         this.emit('response', 'Available Commands: add task\nls\ndelete: id');
     }
 
-    add() {
-        this.emit('response', 'add ...');
+    add(args) {
+        this.emit('response', args.join(' '));
     }
 
     ls() {
