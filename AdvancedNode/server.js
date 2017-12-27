@@ -3,6 +3,11 @@ const EventEmitter = require('events');
 class Server extends EventEmitter {
     constructor(client) {
         super();
+
+        process.nextTick(() => {
+            this.emit('response', 'Type a command');
+        });
+
         client.on('command', (command) => {
             switch (command) {
                 case 'help':
