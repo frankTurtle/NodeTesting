@@ -8,7 +8,7 @@ class Server extends EventEmitter {
             this.emit('response', 'Type a command');
         });
 
-        client.on('command', (command) => {
+        client.on('command', (command, args) => {
             switch (command) {
                 case 'help':
                     this[command]();
@@ -34,7 +34,7 @@ class Server extends EventEmitter {
     }
 
     help() {
-        this.emit('response', 'help ...');
+        this.emit('response', 'Available Commands: add task\nls\ndelete: id');
     }
 
     add() {

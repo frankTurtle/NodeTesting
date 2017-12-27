@@ -9,9 +9,11 @@ const rl = readline.createInterface({
 const client = new EventEmitter();
 const server = require('./server')(client);
 server.on('response', (resp) => {
-    console.log(`Response: ${resp}`);
+    console.log(resp);
 });
 
+let command, args;
 rl.on('line', (input) => {
-    client.emit('command', input);
+    [command, ...args] = input.split(' ');
+    client.emit('command', command, args);
 });
